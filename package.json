@@ -30,5 +30,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "anyhotpass-lib": "^1.0.0",
+    "bootstrap": "^4.4.1",
+    "react-bootstrap": "^1.0.1"
   }
 }
