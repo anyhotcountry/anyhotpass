@@ -15,63 +15,58 @@ class AnyHotPass extends React.Component {
     this.domainChanged = this.domainChanged.bind(this);
     this.handleGenerate = this.handleGenerate.bind(this);
     this.handleToggle = this.handleToggle.bind(this);
+    this.handleFocus = (event) => event.target.select();
   }
 
   render() {
     return (
       <>
-
-        <Modal.Dialog>
+        <Modal show="true" backdrop="false">
           <Modal.Header>
             <Modal.Title>AHP</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Form>
               <Form.Group controlId="formPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" onChange={this.masterChanged} />
+                <Form.Control type="password" placeholder="Master Password" required onChange={this.masterChanged} />
               </Form.Group>
               <Form.Group controlId="formDomain">
-                <Form.Label>Domain</Form.Label>
-                <Form.Control type="text" placeholder="example.com" onChange={this.domainChanged} />
+                <Form.Control type="text" placeholder="example.com" required onChange={this.domainChanged} />
               </Form.Group>
-              <Button variant="primary" type="submit" block onClick={this.handleGenerate} class="mr-1" >Generate</Button>
+              <Button variant="secondary" type="submit" block onClick={this.handleGenerate} class="mr-1" >Generate</Button>
+              <Form.Group controlId="formDomain" className="mt-2">
+                <Form.Control type="text" readOnly onFocus={this.handleFocus} value={this.state.password} />
+              </Form.Group>
             </Form>
-            <InputGroup className="mt-2">
-              <FormControl type={this.state.hidden ? "password" : "text"} placeholder="Password" readOnly onChange={this.masterChanged} value={this.state.password} />
-              <InputGroup.Append>
-                <ToggleButton type="checkbox" checked={!this.state.hidden} onClick={this.handleToggle}> Show</ToggleButton>
-              </InputGroup.Append>
-            </InputGroup>
           </Modal.Body>
-        </Modal.Dialog>
+        </Modal>
       </>
     )
   }
 
   masterChanged(e) {
-    this.setState({ master: e.target.value });
+          this.setState({ master: e.target.value });
   }
 
   domainChanged(e) {
-    this.setState({ domain: e.target.value });
+          this.setState({ domain: e.target.value });
   }
 
   handleGenerate(e) {
-    e.preventDefault();
+          e.preventDefault();
     if (this.state.master.length === 0 || this.state.domain.length === 0) {
       return;
     }
     const password = generate(this.state.master, this.state.domain, 18);
     this.setState(state => ({
-      password: password
+          password: password
     }));
   }
 
   handleToggle(e) {
-    e.preventDefault();
+          e.preventDefault();
     this.setState(state => ({
-      hidden: !this.state.hidden
+          hidden: !this.state.hidden
     }));
   }
 }
