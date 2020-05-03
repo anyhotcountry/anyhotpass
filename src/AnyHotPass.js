@@ -1,9 +1,6 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import FormControl from 'react-bootstrap/FormControl';
-import InputGroup from 'react-bootstrap/InputGroup';
-import ToggleButton from 'react-bootstrap/ToggleButton';
 import Modal from 'react-bootstrap/Modal';
 import generate from 'anyhotpass-lib';
 
@@ -31,7 +28,7 @@ class AnyHotPass extends React.Component {
                 <Form.Control type="password" placeholder="Master Password" required onChange={this.masterChanged} />
               </Form.Group>
               <Form.Group controlId="formDomain">
-                <Form.Control type="text" placeholder="example.com" required onChange={this.domainChanged} />
+                <Form.Control type="url" placeholder="example.com" required onChange={this.domainChanged} />
               </Form.Group>
               <Button variant="secondary" type="submit" block onClick={this.handleGenerate} class="mr-1" >Generate</Button>
               <Form.Group controlId="formDomain" className="mt-2">
