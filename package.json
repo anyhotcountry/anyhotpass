@@ -34,8 +34,9 @@
     ]
   },
   "devDependencies": {
-    "anyhotpass-lib": "^1.0.0",
+    "anyhotpass-lib": "^1.0.1",
     "bootstrap": "^4.4.1",
-    "react-bootstrap": "^1.0.1"
+    "react-bootstrap": "^1.0.1",
+    "react-test-renderer": "^16.13.1"
   }
 }

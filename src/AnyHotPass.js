@@ -12,8 +12,8 @@ function AnyHotPass() {
   const passwordRef = useRef(null);
 
   useEffect(() => {
-    masterRef.current.focus();
-  });
+    masterRef.current.focus();      
+  }, []);
 
   const generate = (e) => {
     e.preventDefault();
@@ -37,7 +37,7 @@ function AnyHotPass() {
               <Form.Control type="password" ref={masterRef} placeholder="Master Password" required onChange={(e) => setMaster(e.target.value)} />
             </Form.Group>
             <Form.Group controlId="formDomain">
-              <Form.Control type="url" placeholder="example.com" required onChange={setDomain((e) => e.target.value)} />
+              <Form.Control type="url" placeholder="example.com" required onChange={(e) => setDomain(e.target.value)} />
             </Form.Group>
             <Button variant="secondary" type="submit" block onClick={(e) => generate(e)} class="mr-1" >Generate</Button>
             <Form.Group controlId="formDomain" className="mt-2">
