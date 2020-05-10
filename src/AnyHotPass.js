@@ -1,19 +1,13 @@
-import React, { useState, useEffect, useRef } from 'react';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
+import React, { useState, useRef } from 'react';
 import generatePass from 'anyhotpass-lib';
+import { useLocation } from "react-router-dom";
 
 function AnyHotPass() {
+  const location = useLocation();
   const [master, setMaster] = useState('');
-  const [domain, setDomain] = useState('');
+  const [domain, setDomain] = useState(location.search.substring(1));
   const [password, setPassword] = useState('');
-  const masterRef = useRef(null);
   const passwordRef = useRef(null);
-
-  useEffect(() => {
-    masterRef.current.focus();      
-  }, []);
 
   const generate = (e) => {
     e.preventDefault();
@@ -26,27 +20,18 @@ function AnyHotPass() {
   };
 
   return (
-    <>
-      <Modal show="true" backdrop="false">
-        <Modal.Header>
-          <Modal.Title>AHP</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form>
-            <Form.Group controlId="formPassword">
-              <Form.Control type="password" ref={masterRef} placeholder="Master Password" required onChange={(e) => setMaster(e.target.value)} />
-            </Form.Group>
-            <Form.Group controlId="formDomain">
-              <Form.Control type="url" placeholder="example.com" required onChange={(e) => setDomain(e.target.value)} />
-            </Form.Group>
-            <Button variant="secondary" type="submit" block onClick={(e) => generate(e)} class="mr-1" >Generate</Button>
-            <Form.Group controlId="formDomain" className="mt-2">
-              <Form.Control type="text" ref={passwordRef} readOnly onFocus={(e) => e.target.select()} value={password} />
-            </Form.Group>
-          </Form>
-        </Modal.Body>
-      </Modal>
-    </>
+    <form>
+      <div className="form-group">
+        <input autoFocus type="password" className="form-control" placeholder="Master Password" required onChange={(e) => setMaster(e.target.value)} value={master} />
+      </div>
+      <div className="form-group">
+        <input type="url" className="form-control" placeholder="example.com" required onChange={(e) => setDomain(e.target.value)} value={domain} />
+      </div>
+      <button className="btn btn-primary btn-lg btn-block " type="submit" onClick={(e) => generate(e)}>Generate</button>
+      <div className="form-group mt-3">
+        <input type="text" ref={passwordRef} readOnly className="form-control" onFocus={(e) => e.target.select()} value={password} />
+      </div>
+    </form>
   )
 }
 

@@ -36,6 +36,6 @@
   "devDependencies": {
     "anyhotpass-lib": "^1.0.2",
     "bootstrap": "^4.4.1",
-    "react-bootstrap": "^1.0.1"
+    "react-router-dom": "^5.1.2"
   }
 }
