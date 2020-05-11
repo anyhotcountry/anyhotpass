@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import generatePass from 'anyhotpass-lib';
 import { useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCopy } from '@fortawesome/free-solid-svg-icons'
+import { faClipboard } from '@fortawesome/free-solid-svg-icons'
 import copy from 'copy-to-clipboard';
 import './AnyHotPass.css';
 
@@ -53,7 +53,7 @@ function AnyHotPass() {
       <div className="input-group mt-3">
         <input type="text" ref={passwordRef} readOnly className="form-control" value={password} />
         <div className="input-group-append">
-          <button className="btn btn-outline-secondary" type="button" onClick={(e) => copyPassword(e)}><FontAwesomeIcon icon={faCopy} size="lg"/></button>
+          <button className="btn btn-outline-secondary" type="button" onClick={(e) => copyPassword(e)}><FontAwesomeIcon icon={faClipboard} size="lg" title="Copy to Clipboard"/></button>
         </div>
       </div>
     </form>
