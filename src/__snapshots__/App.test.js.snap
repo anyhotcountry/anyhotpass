@@ -3,7 +3,7 @@
 exports[`App render matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="container"
+    class="container-sm"
   >
     <div
       class="card"
@@ -33,7 +33,7 @@ exports[`App render matches snapshot 1`] = `
               class="form-control"
               placeholder="example.com"
               required=""
-              type="url"
+              type="text"
               value=""
             />
           </div>
@@ -44,7 +44,7 @@ exports[`App render matches snapshot 1`] = `
             Generate
           </button>
           <div
-            class="form-group mt-3"
+            class="input-group mt-3"
           >
             <input
               class="form-control"
@@ -52,6 +52,30 @@ exports[`App render matches snapshot 1`] = `
               type="text"
               value=""
             />
+            <div
+              class="input-group-append"
+            >
+              <button
+                class="btn btn-outline-secondary"
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="svg-inline--fa fa-copy fa-w-14 fa-lg "
+                  data-icon="copy"
+                  data-prefix="fas"
+                  focusable="false"
+                  role="img"
+                  viewBox="0 0 448 512"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M320 448v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V120c0-13.255 10.745-24 24-24h72v296c0 30.879 25.121 56 56 56h168zm0-344V0H152c-13.255 0-24 10.745-24 24v368c0 13.255 10.745 24 24 24h272c13.255 0 24-10.745 24-24V128H344c-13.2 0-24-10.8-24-24zm120.971-31.029L375.029 7.029A24 24 0 0 0 358.059 0H352v96h96v-6.059a24 24 0 0 0-7.029-16.97z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </button>
+            </div>
           </div>
         </form>
       </div>
