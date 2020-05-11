@@ -25,8 +25,10 @@ function AnyHotPass() {
     if (master.length === 0 || domain.length === 0) {
       return;
     }
-    const newPassword = generatePass(master, domain, 18);
+    const lowerCaseDomain = domain.toLowerCase();
+    const newPassword = generatePass(master, lowerCaseDomain, 18);
     setPassword(newPassword);
+    setDomain(lowerCaseDomain);
   };
 
   const copyPassword = (e) => {
@@ -35,7 +37,9 @@ function AnyHotPass() {
       passwordRef.current.select();
       passwordRef.current.focus();
     }
-    copy(password);
+    if (password !== '') {
+      copy(password);      
+    }
   };
 
   return (
